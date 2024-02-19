@@ -1,0 +1,32 @@
+<header>
+  <h1><div id="titulo">LA WEB DEL BOBBY</div></h1>
+</header>
+
+<body>
+
+<h2><p>SELECCIONA UN VIDEO PER GENERAR UN CODI</p></h2>
+
+<div *ngIf="videoSeleccionado==true">  Aquest es el teu codi de verificació:<h3><b>{{codigoGenerado}}</b> </h3> </div>
+
+
+
+<div *ngFor="let video of videos">
+
+  <p><a  (click)="generarCodi(video.name)" id="video">{{ video.name }}</a></p>
+
+
+  <div *ngIf="codigoCorrecto && videoSeleccionado && video.name === nameVideoseleccionado">
+    <video controls>
+      <source src="http://192.168.17.245:3080/{{video.path}}">
+    </video>
+  </div>
+
+</div>
+
+
+
+</body>
+
+<footer>
+  Pagina por Pau Casas y Daniel Diaz
+</footer>
